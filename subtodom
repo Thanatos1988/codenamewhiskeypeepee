@@ -1,0 +1,24 @@
+from riskiq.api import Client
+from urlparse import urlparse
+import sys
+import json
+import requests
+import pythonwhois
+import tldextract
+
+#Variables
+urls = []
+domains = []
+
+#This pulls urls from a text file named urls.txt and adds them to the urls list
+with open('urls.txt') as ins:
+	for line in ins:
+		urls.append(line)
+
+#takes the urls and strips them to their domains
+for url in urls:
+	extracted = tldextract.extract(url)
+	extracted_dom = "{}.{}".format(extracted.domain, extracted.suffix)
+	domains.append(extracted_dom)
+
+print domains

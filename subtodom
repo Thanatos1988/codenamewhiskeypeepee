@@ -1,4 +1,3 @@
-from riskiq.api import Client
 from urlparse import urlparse
 import sys
 import json
